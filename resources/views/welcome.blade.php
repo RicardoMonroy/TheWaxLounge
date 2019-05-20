@@ -78,8 +78,8 @@
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		 <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
-          <img src="images/LogotipoWAX.png">
-          <span>The Wax Lounge</span>
+          <img src="storage/{{ $brand->brand_logo }}"> <!--images/LogotipoWAX.png -->
+          <span>{{ $brand->brand_name}}</span>
         </div>
       </form>
 		 <ul class="nav navbar-nav cl-effect-8">
@@ -177,6 +177,18 @@
 				<div class="col-md-12">
 					<h3 style="color: #FFFFFF; font-size: 1em; text-align: center;" id="pricesF"><strong>FACIAL WAXING AND TINTING</strong></h3>
 				</div>
+				@foreach ($three_services as $three_service)
+				<div class=" why-choose">
+					<div class="col-md-9 col-sm-9 col-xs-9">
+						<h5 style="color: #FFFFFF; margin-top: -15px;">{{ $three_service->name }}</h5>
+					</div>
+					<div class="col-md-3 col-sm-3 col-xs-3"> 
+						<h5 style="color: #FFFFFF; margin-top: -15px;">US$ {{ $three_service->price }}</h5>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				@endforeach
+				<!-- 								
 				<div class=" why-choose">
 					<div class="col-md-9 col-sm-9 col-xs-9">
 						<h5 style="color: #FFFFFF; margin-top: -15px;">Brow Cleaning</h5>
@@ -276,12 +288,25 @@
 					</div>
 					<div class="clearfix"> </div>
 				</div>
-				
+				 -->
 			</div>
 			<div class="col-md-4 us-choose animated wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="500ms">
 				<div class="col-md-12">
 					<h3 style="color: #FFFFFF; font-size: 1.2em; text-align: center;" id="pricesW"><strong>WOMENS BODY WAXING</strong></h3>
 				</div>
+				@foreach ($two_services as $two_service)
+				<div class=" why-choose">
+					<div class="col-md-9 col-sm-9 col-xs-9">
+						<h5 style="color: #FFFFFF; margin-top: -15px;">{{ $two_service->name }}</h5>
+					</div>
+					<div class="col-md-3 col-sm-3 col-xs-3"> 
+						<h5 style="color: #FFFFFF; margin-top: -15px;">US$ {{ $two_service->price }}</h5>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				@endforeach
+				<br><br><br>
+				<!-- 
 				<div class=" why-choose">
 					<div class="col-md-9 col-sm-9 col-xs-9">
 						<h5 style="color: #FFFFFF; margin-top: -15px;">Half Lower Back</h5>
@@ -399,13 +424,26 @@
 					</div>
 					<div class="clearfix"> </div><br><br><br>
 				</div>
-
+				 -->
 				
 			</div>
 			<div class="col-md-4 us-choose animated wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="500ms" style="border: solid 1px; padding-top: 30px; padding-bottom: 30px;">
 				<div class="col-md-12">
 					<h3 style="color: #FFFFFF; font-size: 1em; text-align: center;" id="pricesM"><strong>MENS BODY WAXING</strong></h3>
 				</div>
+				@foreach ($one_services as $one_service)
+				<div class=" why-choose">
+					<div class="col-md-9 col-sm-9 col-xs-9">
+						<h5 style="color: #FFFFFF; margin-top: -15px;">{{ $one_service->name }}</h5>
+					</div>
+					<div class="col-md-3 col-sm-3 col-xs-3"> 
+						<h5 style="color: #FFFFFF; margin-top: -15px;">US$ {{ $one_service->price }}</h5>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				@endforeach
+
+<!-- 				
 				<div class=" why-choose">
 					<div class="col-md-9 col-sm-9 col-xs-9">
 						<h5 style="color: #FFFFFF; margin-top: -15px;">Full Back</h5>
@@ -469,7 +507,7 @@
 					</div>
 					<div class="clearfix"> </div>
 				</div>
-				
+				 -->
 			</div><br><br><br>
 				<div class="clearfix"> </div>
 			</div>
@@ -624,7 +662,8 @@
 		<div class="team-head" id="contact">
 					<h2>Contact</h2>
 					<div class="map">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3059.595064048721!2d-105.13418908451146!3d39.9280772794249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876b8c8481735807%3A0x84d252cd6ae88e98!2s550+Zang+St+%2303%2C+Broomfield%2C+CO+80021%2C+EE.+UU.!5e0!3m2!1ses!2smx!4v1486661124810"></iframe>
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3059.595064048721!2d{{ $branch_office->longitude }}8451146!3d{{ $branch_office->latitude }}794249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876b8c8481735807%3A0x84d252cd6ae88e98!2s550+Zang+St+%2303%2C+Broomfield%2C+CO+80021%2C+EE.+UU.!5e0!3m2!1ses!2smx!4v1486661124810"></iframe>
+							<!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3059.595064048721!2d-105.13418908451146!3d39.9280772794249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876b8c8481735807%3A0x84d252cd6ae88e98!2s550+Zang+St+%2303%2C+Broomfield%2C+CO+80021%2C+EE.+UU.!5e0!3m2!1ses!2smx!4v1486661124810"></iframe> -->
 					</div>
                 </div>
 				<div class="contact-form">
@@ -639,19 +678,19 @@
                         @csrf
 						<div>
 							<span>Your Name </span>		
-							<input type="text" name="name" >						
+							<input type="text" name="name" required>						
 						</div>
 						<div>
 							<span>Your Email </span>		
-							<input type="text" name="email" >						
+							<input type="text" name="email" required>						
 						</div>
 						<div>
 							<span>Subject</span>		
-							<input type="text" name="subject" >	
+							<input type="text" name="subject" required>	
 						</div>
 						<div>
 							<span>Your Message</span>		
-							<textarea name="body"> </textarea>	
+							<textarea name="body" required> </textarea>	
 						</div>
 							<input type="submit" value="send" >
 					</form>						
@@ -666,9 +705,10 @@
 							<i class="glyphicon glyphicon-map-marker"></i>
 							<div class="address1">
 							<h3>Address</h3>
-								<p>550 Zang Street Suite</p> 
+								<p>{{ $branch_office->address }}</p>	
+								<!-- <p>550 Zang Street Suite</p> 
 								<p>#03 Broomfield, Co 80021</p>
-								<p>Inside Salon Republic</p>
+								<p>Inside Salon Republic</p> -->
 							</div>
 							<div class="clearfix"> </div>
 						</div>
@@ -676,7 +716,7 @@
 							<i class="glyphicon glyphicon-phone"></i>
 							<div class="address1">
 							<h3>Our Phone:<h3>
-								<p>7206333129</p>
+								 <p>{{ $branch_office->phone }}</p> <!--7206333129 -->
 							</div>
 							<div class="clearfix"> </div>
 						</div>
@@ -684,7 +724,7 @@
 							<i class="glyphicon glyphicon-envelope"></i>
 							<div class="address1">
 							<h3>Email:</h3>
-								<p><a href="mailto:info@example.com">taniastancliff@thewax-lounge.com</a></p>
+								<p><a href="mailto:info@example.com">{{ $branch_office->email }}</a></p>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
@@ -710,8 +750,8 @@
 				<div class="col-md-7 footer-middle-in animated wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="500ms">
 						
 						<ul class="tag-in">
-							<li><img src="images/Logo.png" alt="The Wax Lounge Logo" style="margin-top: -10px;"></li>
-							<span style="font-size: 3em; color: #FFFFFF; margin-top: 25px;">The Wax Lounge</span>
+							<li><img src="storage/{{ $brand->brand_logo }}" alt="The Wax Lounge Logo" style="margin-top: -10px;"></li>
+							<span style="font-size: 3em; color: #FFFFFF; margin-top: 25px;">{{ $brand->brand_name }}</span>
 						</ul>
 					</div>
 					<div class="col-md-5 footer-middle-in animated wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="500ms">
@@ -739,7 +779,7 @@
 
 				</div>
 
-					<p class="footer-class animated wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="500ms">&copy; 2017 The Wax Lounge . All Rights Reserved | Access admin: <a href="/admin" target="_blank">Here</a> </p>
+					<p class="footer-class animated wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="500ms">&copy; 2019 The Wax Lounge . All Rights Reserved | Access admin: <a href="{{ url('/admin') }}" target="_blank">Here</a> </p>
 					<div class="clearfix"> </div>
 				</div>
 			</div>
