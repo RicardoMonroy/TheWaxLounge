@@ -57,7 +57,7 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'rmonroy.rodriguez@gmail.com.com'),
-        'name' => env('MAIL_FROM_NAME', 'Rciardo Monroy'),
+        'name' => env('MAIL_FROM_NAME', 'TheWaxLounge Website'),
     ],
 
     /*
